@@ -1,0 +1,3133 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "e0db2d54",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#######################################################\n",
+    "#######################################################\n",
+    "############    COPYRIGHT - DATA SOCIETY   ############\n",
+    "#######################################################\n",
+    "#######################################################\n",
+    "\n",
+    "## INTERMEDIATEPYTHON/CONTROLFLOW/INTERMEDIATEPYTHON CONTROLFLOW 1 ##\n",
+    "\n",
+    "## NOTE: To run individual pieces of code, select the line of code and\n",
+    "##       press ctrl + enter for PCs or command + enter for Macs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "0077a7e0-7a9f-4f0b-8b2c-b102b4a54a10",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python 3.12.1\n"
+     ]
+    }
+   ],
+   "source": [
+    "!python --version"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "32b92f32-539c-447d-89b1-95566dcf85cf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/var/folders/0k/09bdrlmx63qf4jwt8dw7nrvc0000gn/T/ipykernel_25464/4080736814.py:1: DeprecationWarning: \n",
+      "Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),\n",
+      "(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)\n",
+      "but was not found to be installed on your system.\n",
+      "If this would cause problems for you,\n",
+      "please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466\n",
+      "        \n",
+      "  import pandas as pd\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "d028d13e-ff35-4227-83f1-f8753a2b1666",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'2.2.0'"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pd.__version__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "c456fdc4",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Good, we are sane!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 14: Conditional statements (cont'd)  ####\n",
+    "\n",
+    "if 2 + 2 == 4:\n",
+    "  print(\"Good, we are sane!\")\n",
+    "else:\n",
+    "    print(\"We are living in 1984!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "94f00e34-5325-48dd-afaa-17c079fb600e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import antigravity"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "031a48ea-bab8-4026-a904-c40bc95bec77",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Good, we are sane!'"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(\n",
+    "    \"Good, we are sane!\"\n",
+    "    if 2 + 2 == 4\n",
+    "    else \"Nothing makes sense\"\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "3c84442e-7221-4e0a-b5db-c8ba8fb7e6a4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Good, we are sane!'"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\"Good, we are sane!\" \\\n",
+    "if 2 + 2 == 4 \\\n",
+    "else \"Nothing makes sense\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "d33c0699-8980-4864-913d-1e15d85fd1d9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 2 3 4 5 6 7 8 9 "
+     ]
+    }
+   ],
+   "source": [
+    "for x in range(1, 10):\n",
+    "    print(x, end=\" \")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "10d48795-57f9-4d14-a94f-f1c18e4ee7b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[False, True, True, True, True, True, True, True, True]"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[bool(x) for x in range(9)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "f4e29ee0-bee7-4cba-88c3-7ad9494e28d3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 2, 3, 4, 5, 6, 7, 8]"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(range(9))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "id": "47f4833b-e01d-423c-b0ce-452d9f5ddcb7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['A',\n",
+       " 'B',\n",
+       " 'C',\n",
+       " 'D',\n",
+       " 'E',\n",
+       " 'F',\n",
+       " 'G',\n",
+       " 'H',\n",
+       " 'I',\n",
+       " 'J',\n",
+       " 'K',\n",
+       " 'L',\n",
+       " 'M',\n",
+       " 'N',\n",
+       " 'O',\n",
+       " 'P',\n",
+       " 'Q',\n",
+       " 'R',\n",
+       " 'S',\n",
+       " 'T',\n",
+       " 'U',\n",
+       " 'V',\n",
+       " 'W',\n",
+       " 'X',\n",
+       " 'Y',\n",
+       " 'Z']"
+      ]
+     },
+     "execution_count": 66,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[chr(x) for x in range(65, 91)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "1a83208b-46b0-4b08-ad23-a10827636217",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "48"
+      ]
+     },
+     "execution_count": 59,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ord(\"0\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "id": "110e72e9-29e4-4354-a54d-c4b06e87c60e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 68,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "bool(-1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d24c5924-f891-4b97-a20b-f5b5cb08bb18",
+   "metadata": {},
+   "source": [
+    "### `and`, `or`\n",
+    "- And: gives LHS if fAlse, else RHS\n",
+    "- oR: gives LHS if tRue, else RHS"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "id": "014995be-b9e2-4c3a-aefe-46c16b6ef2f9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "String is empty!\n"
+     ]
+    }
+   ],
+   "source": [
+    "string = \"\"\n",
+    "if string:\n",
+    "    print(string)\n",
+    "else:\n",
+    "    print(\"String is empty!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "id": "a3458cbf-6d0c-4113-9824-170d8ca7c9da",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 75,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = 2\n",
+    "\"\" and x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "id": "83a26f16-22a9-4bdb-ad99-0dbc43a21626",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'abc'"
+      ]
+     },
+     "execution_count": 79,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\"abc\" or 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "id": "09166c66-1b7f-4402-91ce-c6e25f1b4645",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 84,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "string or \"default\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "41ab6ebd-b8c7-4e80-a5ca-4aea99c64a23",
+   "metadata": {},
+   "source": [
+    "### `if`\n",
+    "- if: as many as you like, independent\n",
+    "- elif: as many as you like for each `if`, dependent on preceding `if` or `elif`\n",
+    "- else: only one after `if` or `elif`, dependent on preceding `if` or `elif`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "2f21ed3a-9ee8-472b-b674-7d1b895d88ae",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(len(\"abc\") == 3) == True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "d3fd55ce-7fc1-4594-a088-1bf610cf58de",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "bool(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 121,
+   "id": "3501aa77-ea43-4160-9ae9-aac3cd27a22b",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "TRUthy\n"
+     ]
+    }
+   ],
+   "source": [
+    "if 4:\n",
+    "    print(\"TRUthy\")\n",
+    "else:\n",
+    "    print(\"FALSEy\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 117,
+   "id": "f73c2c14-4fc3-471c-aab8-619da3983c83",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'FALSEy'"
+      ]
+     },
+     "execution_count": 117,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\"TRUthy\" if \"\" else \"FALSEy\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a466ce55-3d32-4d77-b763-501ab9e167ae",
+   "metadata": {},
+   "source": [
+    "JavaScript: condition ? result_if_true : result_if_false "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "80bd763c-4979-4e41-b3cd-d3bc804d49c5",
+   "metadata": {},
+   "source": [
+    "Python: result_if_true if condition else result_if_false "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 120,
+   "id": "aeb57f6b-bdb8-4d1e-9430-582b6441087d",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Warm'"
+      ]
+     },
+     "execution_count": 120,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "temp = 22\n",
+    "\"Hot\" if temp > 30 else \"Warm\" if temp > 20 else \"Cool\" if temp > 10 else \"Cold\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "65a37367",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 16: Recap: Combining Booleans  ####\n",
+    "\n",
+    "# Check if 2 conditions are true\n",
+    "# for the expression to return `True`!\n",
+    "x = 8\n",
+    "print(x > 5 and x < 10)\n",
+    "# Every single condition much be true for this expression to return `True`!\n",
+    "print(x > 5 and x > 1 and abs(x) == 7 and x < 10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "2a1329f0",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n",
+      "False\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 17: Condition types  ####\n",
+    "\n",
+    "condition = 2 + 2 == 4\n",
+    "print(condition)\n",
+    "\n",
+    "another_condition = \"this string\" == \"that string\"\n",
+    "print(another_condition)\n",
+    "yet_another_condition = 5 + 10 > 10 + 5\n",
+    "print(yet_another_condition)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "3dbaea4d-fa5c-44ec-8a0b-32eec1df0eda",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 18: Condition types (cont'd)  ####\n",
+    "\n",
+    "compound_condition1 = (5 + 10 > 10 + 5) and (\"this string\" == \"this string\")\n",
+    "print(compound_condition1)\n",
+    "compound_condition2 = (5 + 10 >= 10 + 5) and (\"this string\" == \"this string\")\n",
+    "print(compound_condition2)\n",
+    "# Here, it's helpful to look at each condition individually.\n",
+    "# If one of them is true, then the whole statement is true."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "49892401-6381-46ff-9471-0c6ad5977799",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'this'"
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "compound_condition3 = False and \"abc\" or 100 / 2 > 100 % 2\n",
+    "compound_condition3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "af5c15fb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Compound condition 1 is false, do something else!\n",
+      "Compound condition 1 is false, do something else!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 19: Putting it all together  ####\n",
+    "\n",
+    "if (5 + 10 > 10 + 5) and (\"this string\" == \"this string\"):\n",
+    "    print(\"Compound condition 1 is true, do something!\")\n",
+    "else:\n",
+    "    print(\"Compound condition 1 is false, do something else!\")\n",
+    "compound_condition1 = (5 + 10 > 10 + 5) and (\"this string\" == \"this string\")\n",
+    "\n",
+    "if compound_condition1:\n",
+    "    print(\"Compound condition 1 is true, do something!\")\n",
+    "else:\n",
+    "    print(\"Compound condition 1 is false, do something else!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f41d1723",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ok, I guess I have to do something after all!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 20: Special cases of conditional blocks  ####\n",
+    "\n",
+    "if compound_condition2:\n",
+    "    print(\"Ok, I guess I have to do something after all!\")\n",
+    "if yet_another_condition:\n",
+    "    print(\n",
+    "        \"This means the `compound_condition3` is true, otherwise you will get nothing!\"\n",
+    "    )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 131,
+   "id": "cbfedb2a-377c-4651-8477-c5acf9c059ef",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "str_list = list(\"abc\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 137,
+   "id": "cdefbab3-1885-41bc-b57c-0f3807cfd111",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a\n"
+     ]
+    }
+   ],
+   "source": [
+    "for s in str_list[:1]:\n",
+    "    print(s)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "id": "d02f3e92-29b6-4450-88a2-cc7a5f758255",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "thick jacket and hat\n"
+     ]
+    }
+   ],
+   "source": [
+    "temp = 15\n",
+    "if temp > 22:\n",
+    "    print(\"shorts\")\n",
+    "elif temp > 18:\n",
+    "    print(\"no jacket\")\n",
+    "elif temp > 12:\n",
+    "    print(\"light jacket\")\n",
+    "elif temp > 0:\n",
+    "    print(\"thick jacket, but no hat\")\n",
+    "elif temp < 0:\n",
+    "    print(\"thick jacket and hat\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 90,
+   "id": "0780434c-cd59-44d0-824c-056a187845ea",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'thick jacket and hat'"
+      ]
+     },
+     "execution_count": 90,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(\n",
+    "    \"shorts\" if temp > 22 else\n",
+    "    \"no jacket\" if temp > 18 else\n",
+    "    \"light jacket\" if temp > 12 else\n",
+    "    \"thick jacket, but no hat\" if temp > 0 else\n",
+    "    \"thick jacket and hat\" if temp < 0 else \"\"\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "42fb633c",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A little pricey but maybe worth it...\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 21: Special cases of conditional blocks (cont'd)  ####\n",
+    "\n",
+    "price = 37000\n",
+    "\n",
+    "if price > 40000:\n",
+    "    print(\"That's too expensive!\")\n",
+    "elif price > 34000:\n",
+    "    print(\"A little pricey but maybe worth it...\")\n",
+    "elif price > 26000:\n",
+    "    print(\"This seems like a fair price for the quality\")\n",
+    "elif price > 22000:\n",
+    "    print(\"What a good deal! I'll get it\")\n",
+    "else:\n",
+    "    print(\"Hmmm this is pretty cheap, maybe there's a problem with it.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "00e63bb4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "You still got to the nested statement!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 22: Special cases of conditional blocks (cont'd)  ####\n",
+    "\n",
+    "if condition:\n",
+    "    if another_condition:\n",
+    "        print(\"You got to a nested statement!\")\n",
+    "    else:\n",
+    "        print(\"You still got to the nested statement!\")\n",
+    "else:\n",
+    "    print(\"No luck printing a nested statement!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "baf5dcfc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Take the car and go celebrate, you can afford it!\n",
+      "Current account balance: 8000\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 23: Actions within conditional blocks  ####\n",
+    "\n",
+    "price = 37000\n",
+    "account_balance = 45000\n",
+    "\n",
+    "if price > 38000:\n",
+    "    action = \"Leave the dealership immediately, this is a rip off!\"\n",
+    "    account_balance = account_balance - price\n",
+    "elif price > 22000 and price <= 38000:\n",
+    "    action = \"Take the car and go celebrate, you can afford it!\"\n",
+    "    account_balance = account_balance - price\n",
+    "else:\n",
+    "    action = \"Leave the dealership immediately, this is a scam!\"\n",
+    "    account_balance = account_balance - price\n",
+    "\n",
+    "print(action)\n",
+    "print(\"Current account balance:\", account_balance)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 100,
+   "id": "ad40cf58-3633-4cac-80a3-6ed723d3042e",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def test_scope(y):\n",
+    "    square = x**2\n",
+    "    return x, square"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 101,
+   "id": "70e1d205-d626-4d06-92b0-ab050e718eaa",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "a, b = test_scope(4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "id": "80e85b2d-0647-408a-a58a-a9ffeacf997f",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "8"
+      ]
+     },
+     "execution_count": 102,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "id": "58cd075d-9e1c-4331-9793-ebdbef544f2f",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "64"
+      ]
+     },
+     "execution_count": 103,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "b"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "id": "fb9dff38-3ca3-4e49-b602-50c1d8f0cf63",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "8"
+      ]
+     },
+     "execution_count": 88,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 89,
+   "id": "585d865e-5d5f-4e1f-b29b-eb520eade4c8",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "16"
+      ]
+     },
+     "execution_count": 89,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "square"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "f342925e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Leave the dealership immediately, this is a rip off!\n",
+      "Current account balance: 4000\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 24: Actions within conditional blocks (cont'd)  ####\n",
+    "\n",
+    "price = 41000\n",
+    "account_balance = 45000\n",
+    "\n",
+    "if price > 38000:\n",
+    "    action = \"Leave the dealership immediately, this is a rip off!\"\n",
+    "    account_balance = account_balance - price\n",
+    "elif price > 22000 and price <= 38000:\n",
+    "    action = \"Take the car and go celebrate, you can afford it!\"\n",
+    "    account_balance = account_balance - price\n",
+    "else:\n",
+    "    action = \"Leave the dealership immediately, this is a scam!\"\n",
+    "    account_balance = account_balance - price\n",
+    "\n",
+    "print(action)\n",
+    "print(\"Current account balance:\", account_balance)\n",
+    "\n",
+    "\n",
+    "#######################################################\n",
+    "####  CONGRATULATIONS ON COMPLETING THIS MODULE!   ####\n",
+    "#######################################################"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "73a09cff",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#######################################################\n",
+    "#######################################################\n",
+    "############    COPYRIGHT - DATA SOCIETY   ############\n",
+    "#######################################################\n",
+    "#######################################################\n",
+    "\n",
+    "## INTERMEDIATEPYTHON/CONTROLFLOW/INTERMEDIATEPYTHON CONTROLFLOW 2 ##\n",
+    "\n",
+    "## NOTE: To run individual pieces of code, select the line of code and\n",
+    "##       press ctrl + enter for PCs or command + enter for Macs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "a5ef69b8-c677-451b-b098-cfb559d593ee",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[10, 12, 14, 16, 18]"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(range(10, 20, 2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "ce52849b-7b86-4977-bc01-ed7030d99149",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 4, 8, 16, 32, 64, 128, 256, 512]"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[2**x for x in range(10)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "111e06bc-7790-47bc-b9b2-3672598de5af",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def infinite_loop():\n",
+    "    c = 0\n",
+    "    while True:\n",
+    "        yield c\n",
+    "        c += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "173c0849-bbec-4233-9de4-00bf5b492069",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "xyz = infinite_loop()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "114022b2-d4d2-489b-ae2e-59c175ad311d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n",
+      "8\n",
+      "9\n",
+      "10\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in xyz:\n",
+    "    print(i)\n",
+    "    if i > 9:\n",
+    "        break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "id": "d8433ea5",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invite Christian Bale!\n",
+      "Invite Bradley Cooper!\n",
+      "Invite Willem Dafoe!\n",
+      "Invite Rami Malek!\n",
+      "Invite Viggo Mortensen!\n",
+      "Invite Yalitza Aparicio!\n",
+      "Invite Glenn Close!\n",
+      "Invite Olivia Colman!\n",
+      "Invite Lady Gaga!\n",
+      "Invite Melissa McCarthy!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 6: Sample for loop - party invitations  ####\n",
+    "\n",
+    "contact_list = [\n",
+    "    \"Christian Bale\",\n",
+    "    \"Bradley Cooper\",\n",
+    "    \"Willem Dafoe\",\n",
+    "    \"Rami Malek\",\n",
+    "    \"Viggo Mortensen\",\n",
+    "    \"Yalitza Aparicio\",\n",
+    "    \"Glenn Close\",\n",
+    "    \"Olivia Colman\",\n",
+    "    \"Lady Gaga\",\n",
+    "    \"Melissa McCarthy\",\n",
+    "]\n",
+    "for name in contact_list:\n",
+    "    print(\"Invite \" + name + \"!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "id": "68c9a502-0e04-4001-93ce-f6eb4618fe21",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Invite Christian Bale!',\n",
+       " 'Invite Bradley Cooper!',\n",
+       " 'Invite Willem Dafoe!',\n",
+       " 'Invite Rami Malek!',\n",
+       " 'Invite Viggo Mortensen!',\n",
+       " 'Invite Yalitza Aparicio!',\n",
+       " 'Invite Glenn Close!',\n",
+       " 'Invite Olivia Colman!',\n",
+       " 'Invite Lady Gaga!',\n",
+       " 'Invite Melissa McCarthy!']"
+      ]
+     },
+     "execution_count": 92,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[\"Invite \" + name + \"!\" for name in contact_list]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 140,
+   "id": "416b5316",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "range(0, 10)\n",
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n",
+      "8\n",
+      "9\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 9: Making a sequence of numbers in Python (cont'd)  ####\n",
+    "\n",
+    "sequence = range(10)\n",
+    "print(sequence)\n",
+    "\n",
+    "for number in sequence:\n",
+    "    print(number)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 141,
+   "id": "2920e155",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "range(1, 11)\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n",
+      "8\n",
+      "9\n",
+      "10\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 10: Making a sequence of numbers in Python (cont'd)  ####\n",
+    "\n",
+    "sequence = range(1, 11)\n",
+    "print(sequence)\n",
+    "\n",
+    "for number in sequence:\n",
+    "    print(number)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 142,
+   "id": "eb59f639",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "range(2, 21, 2)\n",
+      "2\n",
+      "4\n",
+      "6\n",
+      "8\n",
+      "10\n",
+      "12\n",
+      "14\n",
+      "16\n",
+      "18\n",
+      "20\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 11: Making a sequence of numbers in Python (cont'd)  ####\n",
+    "\n",
+    "sequence = range(2, 21, 2)\n",
+    "print(sequence)\n",
+    "\n",
+    "for number in sequence:\n",
+    "    print(number)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 147,
+   "id": "b586ecce",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "10\n",
+      "Invite Christian Bale!\n",
+      "Invite Bradley Cooper!\n",
+      "Invite Willem Dafoe!\n",
+      "Invite Rami Malek!\n",
+      "Invite Viggo Mortensen!\n",
+      "Invite Yalitza Aparicio!\n",
+      "Invite Glenn Close!\n",
+      "Invite Olivia Colman!\n",
+      "Invite Lady Gaga!\n",
+      "Invite Melissa McCarthy!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 12: For loops with counters in Python  ####\n",
+    "\n",
+    "print(len(contact_list))\n",
+    "\n",
+    "# Save length of the list as number of contacts\n",
+    "# for convenience.\n",
+    "\n",
+    "# Go through indices in a range between 0 and 9.\n",
+    "for i in contact_list:\n",
+    "    # Invite a person in the list at index i.\n",
+    "    print(\"Invite \" + i + \"!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 94,
+   "id": "282eb1f8-09eb-4034-8f06-5b5f2415650b",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "10\n",
+      "Invite guest #0: Christian Bale!\n",
+      "Invite guest #1: Bradley Cooper!\n",
+      "Invite guest #2: Willem Dafoe!\n",
+      "Invite guest #3: Rami Malek!\n",
+      "Invite guest #4: Viggo Mortensen!\n",
+      "Invite guest #5: Yalitza Aparicio!\n",
+      "Invite guest #6: Glenn Close!\n",
+      "Invite guest #7: Olivia Colman!\n",
+      "Invite guest #8: Lady Gaga!\n",
+      "Invite guest #9: Melissa McCarthy!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 12: For loops with counters in Python  ####\n",
+    "\n",
+    "print(len(contact_list))\n",
+    "\n",
+    "# Save length of the list as number of contacts\n",
+    "# for convenience.\n",
+    "\n",
+    "# Go through indices in a range between 0 and 9.\n",
+    "for i, guest in enumerate(contact_list):\n",
+    "    # Invite a person in the list at index i.\n",
+    "    print(f\"Invite guest #{i}: {guest}!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 113,
+   "id": "b6820fe0-d331-45df-a951-5e0db5d933c9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'write some text and then add some code: GLENN CLOSE and $10.56!': 3}"
+      ]
+     },
+     "execution_count": 113,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{\n",
+    "    \"write some text and then \"\n",
+    "    f\"add some code: {contact_list[-4].upper()}\"\n",
+    "    f\" and ${10.5555:.2f}!\": 3\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 96,
+   "id": "646bb5b7-2d08-42de-8fad-f28b2f1d6cd0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Lady Gaga'"
+      ]
+     },
+     "execution_count": 96,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "contact_list[-2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "db844311",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 13: Using a for loop to build an object  ####\n",
+    "\n",
+    "squares = []"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 149,
+   "id": "5829968d",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 14: Using a for loop to build an object (cont'd)  ####\n",
+    "squares = []\n",
+    "for x in range(5, 16):\n",
+    "    squares.append(x**2)\n",
+    "print(squares)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 123,
+   "id": "b9e8dd4d-fb9f-42b5-a380-fbb4f13af61d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(1, False, 45.0, 'abc', [[[]]])"
+      ]
+     },
+     "execution_count": 123,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "1, False, 45.0, \"abc\", [[[]]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 150,
+   "id": "2ec8b9fd",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 16: List comprehension  ####\n",
+    "\n",
+    "squares = [x**2 for x in range(5, 16)]\n",
+    "squares = [pow(x, 2) for x in range(5, 16)]\n",
+    "print(squares)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 114,
+   "id": "545c7fd5-daaa-4ea8-a8a0-358407ac42f5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 2, 3, 4, 5, 6, 7, 8]"
+      ]
+     },
+     "execution_count": 114,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(range(9))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "64ec2311-2b0e-49c0-a26b-f9cb022361b6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{0: 'a', 1: 'b', 2: 'c'}"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dict(enumerate(\"abc\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "2d5d5f9f-3173-45da-90d0-e1e4d45cad05",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 4, 9, 16, 25, 36, 49, 64]"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[*map(pow, range(9), [2] * 9)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "a492cee1-6481-4de1-b035-05776b3e34cd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 4, 9, 16, 25, 36, 49, 64]"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[x**2 for x in range(9)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 125,
+   "id": "8c6b2d68-3b75-4a53-8b9c-c972aed20a26",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 17: Looping over a dictionary  ####\n",
+    "\n",
+    "prices = {\"bus\": 1.75, \"metro\": 3.50, \"uber\": 8.75, \"lyft\": 7.50}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 126,
+   "id": "851bf51f-48a3-444b-a765-6cb8733ce6b3",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "items = prices.items()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 127,
+   "id": "85f6f703-c08e-4c3c-a26f-22e5cbb31bc4",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_items([('bus', 1.75), ('metro', 3.5), ('uber', 8.75), ('lyft', 7.5)])"
+      ]
+     },
+     "execution_count": 127,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "items"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 158,
+   "id": "c0f12509-0352-4edb-8cdb-7dafc812d7a8",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The price for bus which is #0 is 1.75\n",
+      "The price for metro which is #1 is 3.5\n",
+      "The price for uber which is #2 is 8.75\n",
+      "The price for lyft which is #3 is 7.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i, (k, v) in enumerate(prices.items()):\n",
+    "    print(\"The price for\", k, f\"which is #{i}\",  \"is\", v)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 129,
+   "id": "db1e16db-ac12-4bdd-bca2-04ab57064910",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The price for bus is 1.75\n",
+      "The price for metro is 3.5\n",
+      "The price for uber is 8.75\n",
+      "The price for lyft is 7.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "for key, value in prices.items():\n",
+    "    print(\"The price for\", key, \"is\", value)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 135,
+   "id": "96db3d58-4025-4d16-84e3-daf96ad120cb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "k = prices.keys()\n",
+    "v = prices.values()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 136,
+   "id": "11b6b8bb-07bc-4a71-986f-1e3b7f0c958a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 2, 2, 2]"
+      ]
+     },
+     "execution_count": 136,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[2] * len(prices)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 137,
+   "id": "dfe78d91-2f07-4c52-933b-483a0e24ed86",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[3.0625, 12.25, 76.5625, 56.25]"
+      ]
+     },
+     "execution_count": 137,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(map(pow, v, [2] * len(prices)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 138,
+   "id": "4645a54d-b95a-4fce-80a2-28a321a42e73",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[3.0625, 12.25, 76.5625, 56.25]"
+      ]
+     },
+     "execution_count": 138,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[x**2 for x in v]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "694b9600-bd65-47ea-8b8b-cb45cec76c04",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'bus': 1.75, 'metro': 3.5, 'uber': 8.75, 'lyft': 7.5}"
+      ]
+     },
+     "execution_count": 38,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dict(zip(k, v))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 164,
+   "id": "bff667a2-71fd-4cd4-90de-c4e54b6adb0b",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{0: ('bus', 1.75), 1: ('metro', 3.5), 2: ('uber', 8.75), 3: ('lyft', 7.5)}"
+      ]
+     },
+     "execution_count": 164,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dict(enumerate(prices.items()))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "fa2b4a5b-cc88-4faf-ad6f-df348f48d6b6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('bus', 'metro'), (1.75, 3.5)]"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(zip(list(prices.items())[0], list(prices.items())[1]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 165,
+   "id": "b50b82e3-29c9-4483-a207-d1b671cb4553",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_items([('bus', 1.75), ('metro', 3.5), ('uber', 8.75), ('lyft', 7.5)])"
+      ]
+     },
+     "execution_count": 165,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "prices.items()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 184,
+   "id": "0dcefa17-dcbf-4adb-8863-123057aca9f7",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def square_num(x):\n",
+    "    return [i**2 for i in x]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 210,
+   "id": "708ace6d-b4ad-43d4-9360-c822f0a7569a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def mypow(*args, power=2):\n",
+    "    \"\"\"Raise all positional arguments to `power`.\"\"\"\n",
+    "    return [a**power for a in args]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 211,
+   "id": "8922059b-aada-443f-ab73-ab02bdc82754",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "15"
+      ]
+     },
+     "execution_count": 211,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 212,
+   "id": "0c33cb88-1213-4a69-98df-ee6ec88bccff",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[14348907, 32768, 30517578125]"
+      ]
+     },
+     "execution_count": 212,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mypow(3, 2, 5, power=x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 180,
+   "id": "dc3748df-dbbc-41e8-aff9-9d47075f1aa6",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "16"
+      ]
+     },
+     "execution_count": 180,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "square"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 245,
+   "id": "7761371d-9be4-4efc-835b-43be42b70c45",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def split(x=3, y=3):\n",
+    "    v = kwargs.values()\n",
+    "    k = kwargs.keys()\n",
+    "    return k, v"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 243,
+   "id": "608dd14b-3f47-4753-8bea-3ab40f6b1a7a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "prices = dict([(\"bus\", 1.75), (\"uber\", 8.75), (\"metro\", 3.5), (\"lyft\", 7.5)])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 244,
+   "id": "60893b41-7aab-45dd-b63c-13664136c007",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'bus': 1.75, 'uber': 8.75, 'metro': 3.5, 'lyft': 7.5}"
+      ]
+     },
+     "execution_count": 244,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "prices"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c2f88025-18df-4df7-a4af-b3766b960bbf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "prices = {\"bus\": 1.75, \"uber\": 8.75, \"metro\": 3.5, \"lyft\": 7.5}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 255,
+   "id": "d2c7de75-f133-4389-b339-babf4bed527e",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "k, v = zip(*prices.items())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 256,
+   "id": "74164a46-108d-443a-b538-11f9c5514362",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "k, v = prices.keys(), prices.values()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 258,
+   "id": "5af0e146-7e0a-4a7e-8fe8-2d546065c30a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_keys(['bus', 'uber', 'metro', 'lyft'])"
+      ]
+     },
+     "execution_count": 258,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "k"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 240,
+   "id": "b7b2b468-9b14-4333-bd3d-7e06a5420786",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'bus': 1.75, 'uber': 8.75}"
+      ]
+     },
+     "execution_count": 240,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dict(bus=1.75, uber=8.75)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 239,
+   "id": "4c9438fa-075f-4697-b63a-82821c092899",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'We spent 10.50 dollars to get here.'"
+      ]
+     },
+     "execution_count": 239,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "split(bus=1.75, uber=8.75)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 168,
+   "id": "9ee3366c-f63b-411c-805e-010e87ff7788",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "k, v = zip()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "5e8fdbf0-ad74-41ad-b27b-09e0f71d0efb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "k, v = zip(*prices.items())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 170,
+   "id": "3797b219-e4e0-4899-b3e3-a6b8e200d8a3",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "k, v = zip(*enumerate(prices.items()))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 265,
+   "id": "58e7f5a4-5e54-4a2c-96a8-7e4a7cd0e965",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "v = prices.values()\n",
+    "k = prices.keys()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 269,
+   "id": "36873b89-42c2-4101-9a1e-958f197f5a7c",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "lk = list(k)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 141,
+   "id": "9a686fbd-ed74-4dfd-a481-7d660c1b8271",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "letters = dict(enumerate(\"abc\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 146,
+   "id": "8eed203e-9700-4cfa-9090-a63c66cb1b29",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{0: 'a', 1: 'b', 2: 'c'}"
+      ]
+     },
+     "execution_count": 146,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "letters"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 151,
+   "id": "ff7f100a-0eda-4f6b-befe-4bf40e5399c8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'A': 0, 'B': 1, 'C': 4}"
+      ]
+     },
+     "execution_count": 151,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{v.upper(): k**2 for k, v in letters.items()}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 152,
+   "id": "cfe96ce0-192d-44a6-adf6-1b42d3bc642d",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_values([1.75, 3.5, 8.75, 7.5])"
+      ]
+     },
+     "execution_count": 152,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "v"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 155,
+   "id": "be368aee-471b-48e7-a25c-9e096368051c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1.75 3.5 8.75 7.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(*v)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 156,
+   "id": "01112896-b105-4319-b9fc-fd149f0b52b5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1.75 3.5 8.75 7.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(1.75, 3.5, 8.75, 7.5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "id": "e75f3d00",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#######################################################\n",
+    "#######################################################\n",
+    "############    COPYRIGHT - DATA SOCIETY   ############\n",
+    "#######################################################\n",
+    "#######################################################\n",
+    "\n",
+    "## INTERMEDIATEPYTHON/CONTROLFLOW/INTERMEDIATEPYTHON CONTROLFLOW 3 ##\n",
+    "\n",
+    "## NOTE: To run individual pieces of code, select the line of code and\n",
+    "##       press ctrl + enter for PCs or command + enter for Macs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 157,
+   "id": "74c72eed-c7c4-448b-856f-e0afaa94e7d1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 1 2 3 4 5 6 7 8\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(*range(9))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 301,
+   "id": "d4aa3c8f-8fed-4b99-8140-dcddb9e8a4bd",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n",
+      "8\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in range(9):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 313,
+   "id": "9633e9d5-5803-49d9-bed1-d71a12665e6f",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1, 3, 5, 7, 9}"
+      ]
+     },
+     "execution_count": 313,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "set(range(9, 0, -2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 321,
+   "id": "4f2059d4-d0aa-4938-a11d-0b3be7934051",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 9, 4, 25, 6, 49, 8]"
+      ]
+     },
+     "execution_count": 321,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[i**2 if i % 2 else i for i in range(1, 9)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "c924964d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 2: Module completion checklist  ####\n",
+    "\n",
+    "contact_list = [\n",
+    "    \"Christian Bale\",\n",
+    "    \"Bradley Cooper\",\n",
+    "    \"Willem Dafoe\",\n",
+    "    \"Rami Malek\",\n",
+    "    \"Viggo Mortensen\",\n",
+    "    \"Yalitza Aparicio\",\n",
+    "    \"Glenn Close\",\n",
+    "    \"Olivia Colman\",\n",
+    "    \"Lady Gaga\",\n",
+    "    \"Melissa McCarthy\",\n",
+    "]\n",
+    "\n",
+    "# Save length of the list as number of contacts\n",
+    "# for convenience.\n",
+    "num_contacts = len(contact_list)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "48e0160a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invite Christian Bale!\n",
+      "Invite Bradley Cooper!\n",
+      "Invite Willem Dafoe!\n",
+      "Invite Rami Malek!\n",
+      "Invite Viggo Mortensen!\n",
+      "Invite Yalitza Aparicio!\n",
+      "Invite Glenn Close!\n",
+      "Invite Olivia Colman!\n",
+      "Invite Lady Gaga!\n",
+      "Invite Melissa McCarthy!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 4: While loops in Python  ####\n",
+    "\n",
+    "# Set the index to starting point.\n",
+    "i = 0\n",
+    "\n",
+    "# While  the index is less than the\n",
+    "# total number of contacts.\n",
+    "while i < num_contacts:\n",
+    "    print(\"Invite \" + contact_list[i] + \"!\")\n",
+    "\n",
+    "    # Increase your index to advance\n",
+    "    # to the next name on list.\n",
+    "    i = i + 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "ee222a07",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python\n",
+      "love\n",
+      "I\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 5: While loops involving a list  ####\n",
+    "\n",
+    "# Create a list\n",
+    "my_list = [\"I\", \"love\", \"Python\"]\n",
+    "# While there's element in the list\n",
+    "while my_list:\n",
+    "    # Print the last element\n",
+    "    # and remove it\n",
+    "    print(my_list.pop())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "id": "d7de3702",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "3\n",
+      "Loop ended.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 9: Break and continue statements  ####\n",
+    "\n",
+    "# break\n",
+    "n = 5\n",
+    "while n > 0:\n",
+    "    n -= 1\n",
+    "    if n == 2:\n",
+    "        break\n",
+    "    print(n)\n",
+    "print(\"Loop ended.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "3278afe6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Loop ended.\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[4, 3, 1, 0]"
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 10: Break and continue statements (cont'd)  ####\n",
+    "\n",
+    "# continue\n",
+    "n = 5\n",
+    "result = []\n",
+    "while n > 0:\n",
+    "    n -= 1\n",
+    "    if n == 2:\n",
+    "        continue\n",
+    "    result.append(n)\n",
+    "print(\"Loop ended.\")\n",
+    "result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "id": "432a3c65-deaf-411e-98f8-b30ed5cfa7c0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4, 3, 2, 1, 0]"
+      ]
+     },
+     "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(range(4, -1, -1))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "51126237-118e-4232-887b-6b8d7f7e33f7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "10"
+      ]
+     },
+     "execution_count": 51,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "i"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 322,
+   "id": "0d4c6aa8-b58c-4ede-88d2-dbdf95da04c8",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4, 9, 1]"
+      ]
+     },
+     "execution_count": 322,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "result = []\n",
+    "for x in range(4, -1, -1):\n",
+    "    if x == 2:\n",
+    "        continue\n",
+    "    if not x:\n",
+    "        continue\n",
+    "    if x % 2:\n",
+    "        result.append(x**2)\n",
+    "    else:\n",
+    "        result.append(x)\n",
+    "result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 164,
+   "id": "2cdce63f-dbdc-4884-9ea4-3d1f0c97aa46",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4, 9, 1]"
+      ]
+     },
+     "execution_count": 164,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "result = [\n",
+    "    square if x % 2 else x\n",
+    "    for x in range(4, -1, -1)\n",
+    "    if (square := x**2)\n",
+    "    if x != 2\n",
+    "]\n",
+    "result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 160,
+   "id": "7157cf12-2040-429c-b7cf-ca2af87e0768",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def get_odd_squares(r):\n",
+    "    for x in r:\n",
+    "        if x == 2:\n",
+    "            continue\n",
+    "        if not x:\n",
+    "            continue\n",
+    "        if x % 2:\n",
+    "            yield x**2\n",
+    "        else:\n",
+    "            yield x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 162,
+   "id": "5764b10b-4aaf-48c2-a5da-18823d17f1c9",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4, 9, 1]"
+      ]
+     },
+     "execution_count": 162,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(get_odd_squares(range(4, -1, -1)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c04524db-da29-458b-b257-c4e1ffb00db9",
+   "metadata": {},
+   "source": [
+    "for loop keywords: for, in, if, else, assert, raise, try, except, elif, ..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "233efe92-54be-4a8b-a570-86b2e6f92c32",
+   "metadata": {},
+   "source": [
+    "function keywords: for, in, if, else, yield, assert, raise, try, except, elif, ..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bf8501dd-56b6-4d8f-bfbf-1a8cecf7d920",
+   "metadata": {},
+   "source": [
+    "list comprehension keywords: for, in, if, else"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "dbe46d27-bc84-4c7a-8cce-da228c8d5b87",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "range"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 336,
+   "id": "8f3d2aa5-644a-4048-903f-9a32a4adee4a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 336,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(square := x**2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 186,
+   "id": "df7839e3-d5bf-43eb-85bf-c6cae9476015",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5"
+      ]
+     },
+     "execution_count": 186,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = 5\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 334,
+   "id": "7971351a-4dcf-4047-8e94-7df15bb958ad",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 334,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "square"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 176,
+   "id": "0323dfa2-dfa3-4851-9be3-0b4e632b38d9",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def odd_squares(nums: list[int]) -> list[int]:\n",
+    "    result = []\n",
+    "    for x in nums:\n",
+    "        if (square := x**2) % 2:\n",
+    "            result.append(square)\n",
+    "    return result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 177,
+   "id": "7de185d5-793b-4ad1-84a7-7f7b23209a53",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'nums': list[int], 'return': list[int]}"
+      ]
+     },
+     "execution_count": 177,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "odd_squares.__annotations__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 358,
+   "id": "97314d08-1892-485b-b26b-7cff5b9abb14",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def odd_squares(nums: list[int]) -> list[int]:\n",
+    "    for x in nums:\n",
+    "        if (square := x**2) % 2:\n",
+    "            yield square"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 355,
+   "id": "0f9a9d4e-37dc-444d-91a2-a60100a1bf54",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def odd_squares(nums: list[int]) -> list[int]:\n",
+    "    return [\n",
+    "        square for x in nums\n",
+    "        if (square := x**2) % 2\n",
+    "    ]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 363,
+   "id": "6010cc18-5f46-4afe-bac2-a2042ce28167",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def even_squares(nums: list[int]) -> list[int]:\n",
+    "    return [square for x in nums if not (square := x**2) % 2 if square]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 364,
+   "id": "5733a6a9-a158-4792-9591-dfe9d7fbebcb",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4, 16, 36, 64]"
+      ]
+     },
+     "execution_count": 364,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "even_squares(range(9))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 165,
+   "id": "9874a7b6-c664-4b1b-8706-b846dc75c6b7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mixed_list = [1, True, \"abc\", 4.5]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 168,
+   "id": "c975c072-1740-48e4-add5-4b2528037c8d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "try:\n",
+    "    result = [x**2 if x % 2 else x for x in mixed_list if x != 2 if x]\n",
+    "except TypeError:\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 188,
+   "id": "ee758913-812d-4a40-84b0-6203a85bbcec",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n"
+     ]
+    }
+   ],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 14: Convert while loop into for loop (cont'd)  ####\n",
+    "\n",
+    "# while loop\n",
+    "# Initialization:\n",
+    "x = 0\n",
+    "# Condition:\n",
+    "while x < 5:\n",
+    "    print(x)\n",
+    "    # Increment:\n",
+    "    x = x + 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "id": "81b54235-8b7b-4610-a409-35df94c9ce07",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n"
+     ]
+    }
+   ],
+   "source": [
+    "# for loop\n",
+    "# Initialization: x=0\n",
+    "# Condition: x = [0,1,2,3,4]\n",
+    "# Increment: 1\n",
+    "for x in range(5):\n",
+    "    print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 169,
+   "id": "a796f0fc-2a48-4dae-ab97-45b98e592257",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 1 2 3 4\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(*range(5))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "2c49a174",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# =================================================-\n",
+    "#### Slide 16: Exercise   ####\n",
+    "\n",
+    "\n",
+    "#######################################################\n",
+    "####  CONGRATULATIONS ON COMPLETING THIS MODULE!   ####\n",
+    "#######################################################"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language": "python",
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
